@@ -1,13 +1,16 @@
 import os
-
+import json
 from flask import Flask
+from kucoin.client import Market
+
+client = Market(url='https://api.kucoin.com')
 
 app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    name = os.environ.get('NAME', 'World 6 !!!')
-    return 'Hello {}!'.format(name)
+	klines = client.get_kline('BTC-USDT','1min')
+	return json.dumps(klines)
 
 if __name__ == "__main__":
-    app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('PORT', 8080)))
+	app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('PORT', 8080)))

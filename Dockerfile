@@ -11,7 +11,7 @@ ENV PORT 8080
 
 # install dependencies
 RUN pip install --upgrade pip
-RUN pip install Flask gunicorn
+RUN pip install Flask gunicorn kucoin-python
 
 # copy project
 COPY . /app/
