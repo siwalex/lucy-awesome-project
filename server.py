@@ -12,5 +12,10 @@ def hello_world():
 	klines = client.get_kline('BTC-USDT','1min')
 	return json.dumps(klines)
 
+@app.route('/test')
+def hello_world2():
+	return "Bonjour internet"
+
+
 if __name__ == "__main__":
 	app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('PORT', 8080)))
