@@ -14,7 +14,7 @@ def hello_world():
 
 @app.route('/test')
 def hello_world2():
-	return "Bonjour internet"
+	return "Bonjour Lucy"
 
 
 if __name__ == "__main__":
